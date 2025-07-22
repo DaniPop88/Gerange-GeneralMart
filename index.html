@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerame Polangcos General Mart | Affordable Apparel in Marikina</title>
+    <meta name="description" content="Gerame Polangcos General Mart. Affordable, quality apparel for men, women, and children in Marikina. Local clothing and essentials.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/FAVICON.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #fff;
+            --accent: #f6c400;
+            --background: #101010;
+            --text: #fff;
+            --card-bg: #181818;
+            --header-bg: #050505;
+            --footer-bg: #050505;
+            --footer-text: #fff;
+            --btn-bg: #f6c400;
+            --btn-hover: #ffe066;
+            --btn-text: #111;
+            --cart-bg: #191919;
+            --border-radius: 14px;
+            --shadow: 0 2px 8px rgba(0,0,0,0.085);
+            --danger: #d44;
+            --danger-hover: #ff6363;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        header {
+            background: var(--header-bg);
+            box-shadow: var(--shadow);
+            padding: 0.5em 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            width: 100%;
+        }
+        .container {
+            width: 94%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.2em;
+            position: relative;
+        }
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+        }
+        .logo-img {
+            height: 68px;
+            width: 68px;
+            background: #111;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-img img {
+            height: 60px;
+            width: 60px;
+            object-fit: contain;
+            display: block;
+        }
+        .brand-title {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1em;
+        }
+        .brand-title .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.35em;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--primary);
+        }
+        .brand-title .type {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.89em;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+        }
+        nav {
+            display: flex;
+            gap: 1.1em;
+            align-items: center;
+            transition: max-height 0.3s;
+        }
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: 0.04em;
+            padding: 0.3em 0.7em;
+            border-radius: 6px;
+            transition: background 0.16s, color 0.16s;
+        }
+        nav a:hover, nav a.active {
+            background: var(--accent);
+            color: var(--btn-text);
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            margin-left: 1em;
+            z-index: 9999;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+        .burger span {
+            display: block;
+            width: 28px;
+            height: 4px;
+            margin: 4px 0;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .hero {
+            background: linear-gradient(90deg, #171717 75%, var(--accent) 100%);
+            color: var(--primary);
+            padding: 3.2em 0 2.1em 0;
+            text-align: center;
+            border-radius: 0 0 38px 38px;
+            margin-bottom: 2.4em;
+            position: relative;
+        }
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.1em;
+        }
+        .hero-logo img {
+            height: 102px;
+            width: 102px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 4px 18px #0002;
+        }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.6em;
+            font-weight: 700;
+            margin: 0 0 0.22em 0;
+            letter-spacing: 0.05em;
+        }
+        .hero p {
+            font-size: 1.23em;
+            margin: 0.7em 0 0.95em 0;
+            color: #eaeaea;
+        }
+        .hero .tagline {
+            display: inline-block;
+            font-size: 1.13em;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-top: 0.5em;
+            color: var(--accent);
+            background: rgba(255,255,255,0.13);
+            border-radius: 8px;
+            padding: 0.36em 1.29em;
+        }
+        .section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2em 1em 1.5em 1em;
+            box-shadow: var(--shadow);
+            margin: 2em auto;
+            width: 94%;
+            max-width: 950px;
+        }
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 0.6em;
+            color: var(--accent);
+            letter-spacing: 0.01em;
+        }
+        .section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.23em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 1.2em;
+        }
+        .section p, .section ul, .section li, .section address {
+            font-size: 1.05em;
+            color: #dedede;
+            line-height: 1.65;
+        }
+        .section ul {
+            margin: 0.5em 0 1em 1.3em;
+            padding: 0;
+        }
+        .section li {
+            margin-bottom: 0.4em;
+        }
+        .section address {
+            font-style: normal;
+        }
+        .testimonial-list {
+            margin-top: 1.1em;
+            padding-left: 1em;
+        }
+        .testimonial {
+            margin-bottom: 1.4em;
+            background: #232323;
+            border-left: 4px solid var(--accent);
+            padding: 1em 1em 1em 1.4em;
+            border-radius: 9px;
+        }
+        .testimonial .author {
+            display: block;
+            margin-top: 0.6em;
+            font-size: 0.98em;
+            color: var(--accent);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .faq-list {
+            margin: 1em 0 0 0;
+            padding: 0;
+        }
+        .faq-item {
+            margin-bottom: 1.2em;
+            background: #232323;
+            border-radius: 8px;
+            padding: 1em 1.2em 1em 1.2em;
+            box-shadow: 0 1px 8px #0002;
+        }
+        .faq-q {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 0.3em;
+        }
+        .faq-a {
+            color: #dedede;
+        }
+        .products-section {
+            margin-bottom: 2em;
+        }
+        .products-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 0.6em;
+            color: var(--accent);
+            text-align: left;
+            letter-spacing: 0.01em;
+        }
+        .products-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.6em;
+        }
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.3em 1em 1.2em 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s, transform 0.13s;
+            border: 1.5px solid #232323;
+        }
+        .product-card:hover {
+            box-shadow: 0 6px 24px #0003;
+            transform: translateY(-2px) scale(1.012);
+            border-color: var(--accent);
+        }
+        .product-image {
+            width: 124px;
+            height: 124px;
+            background: #232323;
+            border-radius: 10px;
+            margin-bottom: 0.8em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image img {
+            max-width: 96px;
+            max-height: 96px;
+            object-fit: contain;
+        }
+        .product-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.12em;
+            margin: 0.08em 0 0.32em 0;
+            text-align: center;
+            color: var(--accent);
+        }
+        .product-desc {
+            font-size: 0.97em;
+            color: #ccc;
+            text-align: center;
+            margin-bottom: 0.44em;
+        }
+        .product-meta {
+            font-size: 0.94em;
+            margin-bottom: 0.4em;
+            color: #e4e4e4;
+        }
+        .product-price {
+            font-size: 1.13em;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.63em;
+        }
+        .add-cart-btn {
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            border-radius: 6px;
+            padding: 0.54em 1.13em;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: background 0.16s, color 0.16s;
+        }
+        .add-cart-btn:hover {
+            background: var(--btn-hover);
+            color: #111;
+        }
+        .cart-section {
+            background: var(--cart-bg);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            padding: 1.15em 1.22em;
+            margin: 2.13em auto 2.12em auto;
+            max-width: 540px;
+            border: 1.5px solid #222;
+            transition: opacity 0.25s;
+        }
+        .cart-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.28em;
+            font-weight: 700;
+            margin-bottom: 1em;
+            color: var(--accent);
+        }
+        .cart-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1em 0;
+        }
+        .cart-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.7em;
+            font-size: 1em;
+            color: #ddd;
+            gap: 0.7em;
+        }
+        .cart-empty {
+            color: #bbb;
+            font-style: italic;
+        }
+        .cart-summary {
+            font-size: 1.09em;
+            font-weight: 600;
+            margin-bottom: 1em;
+            color: var(--accent);
+        }
+        .checkout-btn {
+            background: var(--accent);
+            color: var(--btn-text);
+            border: none;
+            border-radius: 6px;
+            padding: 0.61em 1.33em;
+            font-weight: 700;
+            font-size: 1.07em;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: background 0.16s, color 0.16s;
+        }
+        .checkout-btn:hover {
+            background: var(--btn-hover);
+        }
+        /* Floating Cart Button */
+        .floating-cart-btn {
+            position: fixed;
+            right: 28px;
+            bottom: 28px;
+            z-index: 1001;
+            background: var(--accent);
+            color: var(--btn-text);
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 6px 22px #0007;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+            transition: background 0.18s, box-shadow 0.18s;
+        }
+        .floating-cart-btn:hover {
+            background: var(--btn-hover);
+            box-shadow: 0 8px 32px #0008;
+        }
+        .floating-cart-badge {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            background: #d44;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 50%;
+            font-size: 0.85em;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px #0005;
+        }
+        /* Cart Pop-up */
+        .cart-popup-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.44);
+            z-index: 10002;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-popup-overlay.active {
+            display: flex;
+        }
+        .cart-popup {
+            background: #222;
+            color: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 48px #000a;
+            padding: 2em 1.5em 1.3em 1.5em;
+            min-width: 320px;
+            max-width: 98vw;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: center;
+            position: relative;
+            animation: popupShow .22s ease;
+            margin: auto;
+        }
+        @keyframes popupShow {
+            from { transform: scale(0.8) translateY(20px); opacity: 0.3;}
+            to { transform: scale(1) translateY(0); opacity: 1;}
+        }
+        .cart-popup h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.23em;
+            font-weight: 700;
+            margin-bottom: 1em;
+            color: var(--accent);
+        }
+        .cart-popup-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1em 0;
+            font-size: 1em;
+            color: #eee;
+            text-align: left;
+        }
+        .cart-popup-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.7em;
+            gap: 1em;
+            background: #232323;
+            border-radius: 7px;
+            padding: 0.45em 0.7em;
+        }
+        .cart-popup-list .remove-btn {
+            background: var(--danger);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 1em;
+            padding: 0.18em 0.7em;
+            transition: background 0.16s;
+        }
+        .cart-popup-list .remove-btn:hover {
+            background: var(--danger-hover);
+        }
+        .cart-popup-total {
+            font-size: 1.13em;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1em 0;
+        }
+        .cart-popup-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.16s;
+        }
+        .cart-popup-close:hover {
+            color: var(--accent);
+        }
+        @media (max-width: 900px) {
+            nav { gap: 0.6em;}
+            .footer-container { flex-direction: column; gap: 0.6em;}
+            .section { max-width: 100%; }
+        }
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: var(--header-bg);
+                width: 100vw;
+                max-width: 320px;
+                box-shadow: 0 4px 20px #0002;
+                padding: 1em 0 1em 0;
+                z-index: 999;
+                display: none;
+            }
+            nav.open {
+                display: flex;
+            }
+            .logo-bar {
+                flex-direction: row;
+            }
+            .burger {
+                display: flex;
+                right: 0;
+                left: auto;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .logo-bar { flex-direction: column; gap: 0.7em;}
+            .hero h1 { font-size: 1.52em; }
+            .section h2 { font-size: 1.19em; }
+            .products-section h2 { font-size: 1.19em; }
+            .products-list { grid-template-columns: 1fr; }
+            .cart-section { max-width: 100%; }
+            footer { font-size: 0.95em; }
+            .floating-cart-btn {
+                right: 16px;
+                bottom: 16px;
+                width: 54px;
+                height: 54px;
+                font-size: 1.7em;
+            }
+            .floating-cart-badge {
+                width: 18px;
+                height: 18px;
+                font-size: 0.76em;
+            }
+            .cart-popup {
+                min-width: 90vw;
+                padding: 1.3em 0.5em 1em 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container logo-bar">
+            <div class="logo-wrap">
+                <span class="logo-img">
+                    <img src="image/LOGO.png" alt="Gerame Polangcos General Mart Logo">
+                </span>
+                <span class="brand-title">
+                    <span class="name">GERAME POLANGCOS</span>
+                    <span class="type">GENERAL MART</span>
+                </span>
+            </div>
+            <button class="burger" id="burger" aria-label="Open navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="#aboutus">About Us</a>
+                <a href="#products">Products & Services</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#faq">FAQ</a>
+                <a href="#testimonials">Testimonials</a>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-logo">
+                <img src="image/LOGO.png" alt="Gerame Polangcos General Mart Logo Large">
+            </div>
+            <h1>Welcome to Gerame Polangcos General Mart</h1>
+            <p>Your Local Destination for Affordable, Quality Apparel in Marikina!</p>
+            <span class="tagline">
+                ✨ Sulit, de kalidad, at panalo sa presyo—dito lang ‘yan sa Polangcos!
+            </span>
+        </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="section" id="aboutus">
+        <h2>About Us</h2>
+        <p>
+            Gerame Polangcos General Mart was established in 2021 with a simple purpose: to provide affordable and quality clothing for hardworking Filipino families. Located in the heart of Marikina City—the Shoe Capital of the Philippines—we are proud to be part of the local community, offering carefully selected products that combine practicality and style.
+        </p>
+        <p>
+            Our founder, Gerame Polangcos, is a true-blue Marikeño who built this mart upon the values of honesty, affordability, and “malasakit sa customer”. We believe that shopping should not break the bank, and every customer deserves excellent service and good finds.
+        </p>
+        <h3>Our Mission</h3>
+        <p>
+            To make stylish, everyday apparel accessible to all Filipinos—mula bata hanggang lolo’t lola.
+        </p>
+        <h3>Our Vision</h3>
+        <p>
+            To become Marikina’s most trusted and recommended general clothing mart by delivering consistent quality and value.
+        </p>
+    </section>
+
+    <!-- PRODUCTS & SERVICES -->
+    <section class="section" id="products">
+        <h2>Products & Services</h2>
+        <p>
+            We offer a curated range of apparel and essentials tailored for the Filipino lifestyle. You’ll find both local brands and select imported items, with new stocks arriving weekly!
+        </p>
+        <ul>
+            <li>
+                <strong>👕 Men’s Apparel:</strong> Polo shirts, casual tees, jackets, office wear & barongs, budget-friendly basics.
+            </li>
+            <li>
+                <strong>👗 Women’s Apparel:</strong> Dresses, blouses, pants, homewear & loungewear, work-ready outfits.
+            </li>
+            <li>
+                <strong>🧒 Kids’ Clothing:</strong> School wear, pambahay, uniforms, trendy & comfy everyday options.
+            </li>
+            <li>
+                <strong>🧢 Accessories:</strong> Hats, belts, socks, bags, local crafts & seasonal items.
+            </li>
+            <li>
+                <strong>🧺 Household Essentials:</strong> Towels, bedsheets, blankets, affordable daily-use items.
+            </li>
+        </ul>
+        <p>
+            All products are handpicked to offer both affordability and style. New arrivals every week!
+        </p>
+        <!-- FEATURED PRODUCTS GRID -->
+        <div class="products-section">
+            <h2>Featured Products</h2>
+            <div class="products-list" id="products-list">
+                <div class="product-card" data-id="1">
+                    <div class="product-image">
+                        <img src="image/placeholder1.png" alt="Men's Polo Shirt">
+                    </div>
+                    <div class="product-title">Men's Polo Shirt</div>
+                    <div class="product-desc">Stylish and comfortable. Perfect for office or casual wear.</div>
+                    <div class="product-meta">Qty: 12</div>
+                    <div class="product-price">₱349.00</div>
+                    <button class="add-cart-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="2">
+                    <div class="product-image">
+                        <img src="image/placeholder2.png" alt="Women's Blouse">
+                    </div>
+                    <div class="product-title">Women's Blouse</div>
+                    <div class="product-desc">Soft fabric, elegant design. For work or weekend getaways.</div>
+                    <div class="product-meta">Qty: 8</div>
+                    <div class="product-price">₱269.00</div>
+                    <button class="add-cart-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="3">
+                    <div class="product-image">
+                        <img src="image/placeholder3.png" alt="Kids' School Uniform">
+                    </div>
+                    <div class="product-title">Kids' School Uniform</div>
+                    <div class="product-desc">Durable, comfy, and budget-friendly for active kids.</div>
+                    <div class="product-meta">Qty: 15</div>
+                    <div class="product-price">₱199.00</div>
+                    <button class="add-cart-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="4">
+                    <div class="product-image">
+                        <img src="image/placeholder4.png" alt="Homewear Pajama Set">
+                    </div>
+                    <div class="product-title">Homewear Pajama Set</div>
+                    <div class="product-desc">Breathable & soft—great for relaxing at home.</div>
+                    <div class="product-meta">Qty: 6</div>
+                    <div class="product-price">₱159.00</div>
+                    <button class="add-cart-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="5">
+                    <div class="product-image">
+                        <img src="image/placeholder5.png" alt="Classic Baseball Cap">
+                    </div>
+                    <div class="product-title">Classic Baseball Cap</div>
+                    <div class="product-desc">Trendy and adjustable. Fits all ages.</div>
+                    <div class="product-meta">Qty: 20</div>
+                    <div class="product-price">₱89.00</div>
+                    <button class="add-cart-btn">Add to Cart</button>
+                </div>
+                <div class="product-card" data-id="6">
+                    <div class="product-image">
+                        <img src="image/placeholder6.png" alt="Towel Set">
+                    </div>
+                    <div class="product-title">Towel Set (2 pcs)</div>
+                    <div class="product-desc">Soft, absorbent, and perfect for daily use.</div>
+                    <div class="product-meta">Qty: 9</div>
+                    <div class="product-price">₱159.00</div>
+                    <button class="add-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CART SECTION -->
+    <section class="cart-section container" id="cart-section">
+        <div class="cart-title">🛒 Your Cart</div>
+        <ul class="cart-list" id="cart-list">
+            <li class="cart-empty">Cart is empty. Start shopping!</li>
+        </ul>
+        <div class="cart-summary" id="cart-summary"></div>
+        <button class="checkout-btn" id="checkout-btn" disabled>Checkout</button>
+    </section>
+
+    <!-- Floating Cart Button -->
+    <button class="floating-cart-btn" id="floating-cart-btn" title="Show Cart" aria-label="Cart">
+        <span style="display:inline-block;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="none" viewBox="0 0 34 34" style="vertical-align:middle;">
+                <circle cx="17" cy="17" r="16.2" stroke="#111" stroke-width="1.6" fill="var(--accent)"/>
+                <path d="M11.5 12c-.5 0-.8.5-.8.9l2 10c.1.5.5.9.9.9h6c.4 0 .8-.4.9-.9l2-10c.1-.4-.3-.9-.8-.9H11.5zm1.4 1.5h7.2l-1.7 8.5h-3.8l-1.7-8.5z" fill="#111"/>
+                <circle cx="14" cy="25" r="1" fill="#111"/>
+                <circle cx="20" cy="25" r="1" fill="#111"/>
+            </svg>
+        </span>
+        <span class="floating-cart-badge" id="floating-cart-badge" style="display:none;">0</span>
+    </button>
+
+    <!-- Pop-up Cart Modal -->
+    <div class="cart-popup-overlay" id="cart-popup-overlay">
+        <div class="cart-popup" id="cart-popup">
+            <button class="cart-popup-close" id="cart-popup-close" title="Close">×</button>
+            <h3>Total Belanja Anda</h3>
+            <ul class="cart-popup-list" id="cart-popup-list">
+                <!-- List of cart items here -->
+            </ul>
+            <div class="cart-popup-total" id="cart-popup-total"></div>
+            <button class="checkout-btn" id="cart-popup-checkout-btn" disabled>Checkout</button>
+        </div>
+    </div>
+
+    <!-- CONTACT US -->
+    <section class="section" id="contact">
+        <h2>Contact Us</h2>
+        <address>
+            <strong>Gerame Polangcos General Mart</strong><br>
+            #14 A. Mabini Street, Barangay Sta. Elena, City of Marikina, NCR, 1800, Philippines<br>
+            <strong>Phone:</strong> <a href="tel:+639360129784" style="color:#f6c400;text-decoration:none;">+63 936 012 9784</a><br>
+            <strong>Email:</strong> <a href="mailto:contact@geramepolangcosmart.com" style="color:#f6c400;text-decoration:none;">contact@geramepolangcosmart.com</a><br>
+            <strong>Website:</strong> <a href="https://www.geramepolangcosmart.com" style="color:#f6c400;text-decoration:none;">www.geramepolangcosmart.com</a><br>
+            <strong>Business Hours:</strong> Monday – Saturday: 8:00 AM – 6:00 PM, Sunday: Closed
+        </address>
+        <p>
+            For orders, inquiries, or customer support, reach us through phone, email, or visit us in-store. Follow us on Facebook soon for promos and updates!
+        </p>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-q">Q: Do you offer delivery?</div>
+                <div class="faq-a">A: Yes, we offer local delivery within Marikina and nearby areas via partner couriers. For inquiries, just send us a message.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: Are your prices fixed?</div>
+                <div class="faq-a">A: Most of our items are already discounted, but we do offer occasional bulk or promo pricing. Sulit na sulit, promise!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: Do you accept online orders?</div>
+                <div class="faq-a">A: Yes, we accept orders via email or phone. Soon, we’ll launch our official Facebook store for easier transactions.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: Do you have fitting rooms?</div>
+                <div class="faq-a">A: Yes, we have a small but clean fitting area inside the store for your convenience.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="section" id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-list">
+            <div class="testimonial">
+                <span>🗣️ “Affordable prices and friendly staff. Always a good place to buy pambahay or casual wear. Suportahan ang lokal!”</span>
+                <span class="author">– Joanna C., Barangay Sto. Niño</span>
+            </div>
+            <div class="testimonial">
+                <span>🗣️ “Nakatipid talaga ako sa school uniforms dito. Plus, may discount pa nung last time. Salamat Gerame!”</span>
+                <span class="author">– Alvin T., SSS Village</span>
+            </div>
+            <div class="testimonial">
+                <span>🗣️ “Nagustuhan ko ‘yung variety ng pambata. Hindi lang mura, maganda rin ang quality.”</span>
+                <span class="author">– Liza M., Concepcion Uno</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <strong>Gerame Polangcos General Mart</strong><br>
+                #14 A. Mabini Street, Barangay Sta. Elena, City of Marikina, NCR, Philippines<br>
+                📞 <a href="tel:+639360129784" style="color:var(--footer-text);text-decoration:none;">+63 936 012 9784</a><br>
+                📧 <a href="mailto:contact@geramepolangcosmart.com" style="color:var(--footer-text);text-decoration:none;">contact@geramepolangcosmart.com</a><br>
+                🌐 <a href="https://www.geramepolangcosmart.com" style="color:var(--footer-text);text-decoration:none;">www.geramepolangcosmart.com</a><br>
+                <div class="footer-business-hours">
+                    Business Hours: Monday – Saturday, 8:00 AM – 6:00 PM
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="refund-policy.html">Refund Policy</a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            © 2025 Gerame Polangcos General Mart. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Burger Button Functionality
+        const burger = document.getElementById('burger');
+        const nav = document.getElementById('main-nav');
+        burger.addEventListener('click', function() {
+            nav.classList.toggle('open');
+            burger.setAttribute('aria-expanded', nav.classList.contains('open'));
+        });
+        nav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                if(window.innerWidth <= 700){
+                    nav.classList.remove('open');
+                    burger.setAttribute('aria-expanded', false);
+                }
+            });
+        });
+        window.addEventListener('resize', function() {
+            if(window.innerWidth > 700){
+                nav.classList.remove('open');
+                burger.setAttribute('aria-expanded', false);
+            }
+        });
+
+        // Cart Functionality
+        const products = [
+            { id: 1, title: "Men's Polo Shirt", price: 349, desc: "Stylish and comfortable. Perfect for office or casual wear.", qty: 12 },
+            { id: 2, title: "Women's Blouse", price: 269, desc: "Soft fabric, elegant design. For work or weekend getaways.", qty: 8 },
+            { id: 3, title: "Kids' School Uniform", price: 199, desc: "Durable, comfy, and budget-friendly for active kids.", qty: 15 },
+            { id: 4, title: "Homewear Pajama Set", price: 159, desc: "Breathable & soft—great for relaxing at home.", qty: 6 },
+            { id: 5, title: "Classic Baseball Cap", price: 89, desc: "Trendy and adjustable. Fits all ages.", qty: 20 },
+            { id: 6, title: "Towel Set (2 pcs)", price: 159, desc: "Soft, absorbent, and perfect for daily use.", qty: 9 }
+        ];
+        let cart = [];
+
+        document.querySelectorAll('.add-cart-btn').forEach((btn, idx) => {
+            btn.addEventListener('click', function() {
+                const product = products[idx];
+                let cartItem = cart.find(item => item.id === product.id);
+                if (cartItem) {
+                    if (cartItem.qty < product.qty) {
+                        cartItem.qty += 1;
+                    }
+                } else {
+                    cart.push({ ...product, qty: 1 });
+                }
+                updateCart();
+            });
+        });
+
+        function updateCart() {
+            const cartList = document.getElementById('cart-list');
+            const cartSummary = document.getElementById('cart-summary');
+            cartList.innerHTML = '';
+            let total = 0;
+            let cartCount = 0;
+            if (cart.length === 0) {
+                cartList.innerHTML = '<li class="cart-empty">Cart is empty. Start shopping!</li>';
+                cartSummary.textContent = '';
+                document.getElementById('checkout-btn').disabled = true;
+                updateFloatingCartBadge(0);
+                return;
+            }
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                cartCount += item.qty;
+                const li = document.createElement('li');
+                li.innerHTML = `<span>${item.title} (x${item.qty})</span>
+                    <span>₱${(item.price * item.qty).toLocaleString()}</span>
+                    <button style="margin-left:10px;background:none;border:none;color:#d44;cursor:pointer;" title="Remove item" onclick="removeFromCart(${item.id})">×</button>`;
+                cartList.appendChild(li);
+            });
+            cartSummary.textContent = `Total: ₱${total.toLocaleString()}`;
+            document.getElementById('checkout-btn').disabled = false;
+            updateFloatingCartBadge(cartCount);
+        }
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            window.location.href = 'order-summary.html';
+        });
+
+        // Floating Cart Button Functionality
+        const floatingCartBtn = document.getElementById('floating-cart-btn');
+        const cartSection = document.getElementById('cart-section');
+        const floatingCartBadge = document.getElementById('floating-cart-badge');
+        const cartPopupOverlay = document.getElementById('cart-popup-overlay');
+        const cartPopupList = document.getElementById('cart-popup-list');
+        const cartPopupTotal = document.getElementById('cart-popup-total');
+        const cartPopupClose = document.getElementById('cart-popup-close');
+        const cartPopupCheckoutBtn = document.getElementById('cart-popup-checkout-btn');
+        function updateFloatingCartBadge(count) {
+            if (count > 0) {
+                floatingCartBadge.textContent = count;
+                floatingCartBadge.style.display = "flex";
+            } else {
+                floatingCartBadge.textContent = 0;
+                floatingCartBadge.style.display = "none";
+            }
+        }
+        // Show pop-up cart modal
+        floatingCartBtn.addEventListener('click', function() {
+            displayCartPopup();
+        });
+        // Close pop-up cart modal
+        cartPopupClose.addEventListener('click', function() {
+            cartPopupOverlay.classList.remove('active');
+        });
+        // Close popup on overlay click (but not when clicking popup itself)
+        cartPopupOverlay.addEventListener('click', function(e) {
+            if(e.target === cartPopupOverlay) cartPopupOverlay.classList.remove('active');
+        });
+        // Checkout in popup
+        cartPopupCheckoutBtn.addEventListener('click', function() {
+            window.location.href = 'order-summary.html';
+        });
+        // Display cart popup details (with remove feature)
+        function displayCartPopup() {
+            cartPopupList.innerHTML = '';
+            let total = 0;
+            if (cart.length === 0) {
+                cartPopupList.innerHTML = '<li style="text-align:center;color:#bbb;font-style:italic;">Keranjang kosong.</li>';
+                cartPopupTotal.textContent = '';
+                cartPopupCheckoutBtn.disabled = true;
+            } else {
+                cart.forEach(item => {
+                    total += item.price * item.qty;
+                    const li = document.createElement('li');
+                    li.innerHTML = `<span>${item.title} (x${item.qty})</span>
+                        <span>₱${(item.price * item.qty).toLocaleString()}</span>
+                        <button class="remove-btn" title="Hapus pesanan" onclick="removeFromCartPopup(${item.id})">×</button>`;
+                    cartPopupList.appendChild(li);
+                });
+                cartPopupTotal.textContent = `Total: ₱${total.toLocaleString()}`;
+                cartPopupCheckoutBtn.disabled = false;
+            }
+            cartPopupOverlay.classList.add('active');
+        }
+        // Remove from Cart from popup
+        window.removeFromCartPopup = function(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+            displayCartPopup();
+        }
+
+        // Initial badge state on load
+        updateFloatingCartBadge(0);
+    </script>
+</body>
+</html>
