@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Summary | Gerame Polangcos General Mart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review your order, provide your details, and complete checkout at Gerame Polangcos General Mart.">
+    <link rel="icon" href="image/FAVICON.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #fff;
+            --accent: #f6c400;
+            --background: #101010;
+            --text: #fff;
+            --header-bg: #050505;
+            --card-bg: #181818;
+            --footer-bg: #050505;
+            --footer-text: #fff;
+            --btn-bg: #f6c400;
+            --btn-hover: #ffe066;
+            --btn-text: #111;
+            --border-radius: 16px;
+            --danger: #d44;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--background);
+            color: var(--text);
+            font-family: 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+        }
+        header {
+            background: var(--header-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            padding: 0.7em 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .container {
+            width: 95%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .logo-bar {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+        .logo-img {
+            height: 54px;
+            width: 54px;
+            background: #111;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-img img {
+            height: 44px;
+            width: 44px;
+            object-fit: contain;
+        }
+        .brand-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.37em;
+            letter-spacing: 0.04em;
+            color: var(--primary);
+        }
+        .summary-wrapper {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 14px rgba(0,0,0,0.12);
+            margin: 2.5em auto 2em auto;
+            padding: 2em 2em 1.5em 2em;
+            max-width: 600px;
+        }
+        .summary-wrapper h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent);
+            font-size: 1.7em;
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+        .summary-wrapper h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1em;
+            text-align: left;
+        }
+        .order-details, .customer-details, .payment-section {
+            margin-bottom: 2em;
+        }
+        .order-table {
+            width: 100%;
+            background: #232323;
+            border-radius: 10px;
+            margin-bottom: 1em;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .order-table th, .order-table td {
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 1em;
+            padding: 0.7em 0.5em;
+            text-align: left;
+            color: #eaeaea;
+        }
+        .order-table th {
+            color: var(--accent);
+            font-weight: 700;
+            border-bottom: 1px solid #333;
+        }
+        .order-table tr:last-child td {
+            border-bottom: none;
+        }
+        .order-total-row td {
+            font-weight: 700;
+            color: var(--accent);
+            border-top: 1px solid #333;
+        }
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.2em;
+        }
+        .form-row label {
+            font-size: 1em;
+            color: var(--accent);
+            margin-bottom: 0.35em;
+        }
+        .form-row input, .form-row select, .form-row textarea {
+            border: none;
+            border-radius: 8px;
+            padding: 0.6em;
+            font-size: 1em;
+            background: #232323;
+            color: #fff;
+            outline: none;
+            margin-bottom: 0.15em;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        .form-row textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+        .btn {
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            border-radius: 7px;
+            padding: 0.7em 1.7em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.17s;
+            margin-top: 0.7em;
+        }
+        .btn:hover {
+            background: var(--btn-hover);
+        }
+        .confirmation-message {
+            background: #1f3c5a;
+            color: var(--accent);
+            border-radius: 10px;
+            padding: 1.6em 1.2em;
+            margin-bottom: 1em;
+            text-align: center;
+            font-size: 1.13em;
+            box-shadow: 0 2px 10px #0002;
+        }
+        .step-indicator {
+            display: flex;
+            gap: 0.5em;
+            justify-content: center;
+            margin-bottom: 1.6em;
+        }
+        .step-indicator span {
+            background: #232323;
+            color: var(--accent);
+            font-size: 1em;
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 0.3em 1.1em;
+            box-shadow: 0 1px 6px #0002;
+        }
+        .step-indicator .active {
+            background: var(--accent);
+            color: var(--btn-text);
+        }
+        .important-note {
+            background: #191919;
+            color: var(--accent);
+            border-radius: 7px;
+            padding: 1.1em;
+            margin-top: 1em;
+            font-size: 0.98em;
+            box-shadow: 0 1px 8px #0002;
+        }
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 2em 0 1em 0;
+            margin-top: 2.5em;
+            font-size: 0.97em;
+            border-top: 2px solid #222;
+        }
+        .footer-container {
+            width: 95%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.5em;
+        }
+        .footer-info {
+            flex: 2;
+            min-width: 260px;
+        }
+        .footer-links {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6em;
+        }
+        .footer-links a {
+            color: var(--footer-text);
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        .footer-business-hours {
+            margin-top: 0.9em;
+            font-size: 0.97em;
+        }
+        .footer-copy {
+            text-align: center;
+            margin-top: 1.2em;
+            font-size: 0.95em;
+            color: #b9cbe5;
+        }
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .container { max-width: 99vw; }
+            .footer-container { flex-direction: column; gap: 0.3em;}
+            .summary-wrapper { padding: 1.2em 0.7em 1em 0.7em; }
+        }
+        @media (max-width: 600px) {
+            .logo-bar { flex-direction: column; gap: 0.7em;}
+            .summary-wrapper { padding: 1em 0.3em 0.5em 0.3em; }
+            .order-table th, .order-table td { font-size: 0.97em; padding: 0.5em 0.3em; }
+            footer { font-size: 0.94em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container logo-bar">
+            <span class="logo-img">
+                <img src="image/LOGO.png" alt="Gerame Polangcos General Mart Logo">
+            </span>
+            <span class="brand-title">GERAME POLANGCOS GENERAL MART</span>
+        </div>
+    </header>
+    <main>
+        <div class="container summary-wrapper">
+            <div class="step-indicator">
+                <span class="active">1. Review Order</span>
+                <span>2. Confirm Details</span>
+                <span>3. Payment</span>
+            </div>
+            <h1>Order Review & Checkout</h1>
+            <div id="checkout-step-1">
+                <h2>Your Selected Items</h2>
+                <table class="order-table" id="order-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Product rows will be inserted here by JS -->
+                    </tbody>
+                    <tfoot>
+                        <tr class="order-total-row">
+                            <td colspan="3">Order Total</td>
+                            <td id="order-total">₱0.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <form id="customer-form" autocomplete="off">
+                    <h2>Your Contact Information</h2>
+                    <div class="form-row">
+                        <label for="customer-name">Full Name</label>
+                        <input type="text" id="customer-name" name="customer-name" required autocomplete="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-row">
+                        <label for="customer-phone">Mobile Number</label>
+                        <input type="tel" id="customer-phone" name="customer-phone" required autocomplete="tel" placeholder="e.g. 09xx-xxx-xxxx">
+                    </div>
+                    <div class="form-row">
+                        <label for="customer-email">Email Address</label>
+                        <input type="email" id="customer-email" name="customer-email" required autocomplete="email" placeholder="you@email.com">
+                    </div>
+                    <div class="form-row">
+                        <label for="customer-address">Delivery Address</label>
+                        <textarea id="customer-address" name="customer-address" required placeholder="Street, barangay, city"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="customer-notes">Additional Instructions</label>
+                        <textarea id="customer-notes" name="customer-notes" placeholder="Notes (optional)"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <label for="payment-method">Preferred Payment Method</label>
+                        <select id="payment-method" name="payment-method" required>
+                            <option value="" disabled selected>Select payment method</option>
+                            <option value="gcash">GCash</option>
+                            <option value="bank">Bank Transfer</option>
+                            <option value="cod">Cash on Delivery</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn" id="submit-order-btn">Submit Order</button>
+                </form>
+            </div>
+            <div id="checkout-step-2" style="display:none;">
+                <div class="confirmation-message" id="confirmation-message">
+                    <strong>Order Submitted Successfully!</strong><br>
+                    Thank you for your purchase. One of our team members will contact you shortly to finalize your order details, including product colors, availability, and any special requests.<br>
+                    <br>
+                    <span style="color:var(--primary);">Please confirm these details with our staff to proceed.</span>
+                </div>
+                <div class="important-note">
+                    <strong>Next Steps:</strong><br>
+                    After you verify your order information, we’ll send you a secure payment link matching your selected payment method.<br>
+                    Kindly complete your payment within 24 hours upon receiving the link to avoid automatic order cancellation.<br>
+                    <br>
+                    If you have questions or need assistance, you may reply to our confirmation message or call us at <a href="tel:+639360129784" style="color:var(--accent);text-decoration:underline;">+63 936 012 9784</a>.
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <strong>Gerame Polangcos General Mart</strong><br>
+                #14 A. Mabini Street, Barangay Sta. Elena, City of Marikina, NCR, Philippines<br>
+                📞 <a href="tel:+639360129784" style="color:var(--footer-text);text-decoration:none;">+63 936 012 9784</a><br>
+                📧 <a href="mailto:contact@geramepolangcosmart.com" style="color:var(--footer-text);text-decoration:none;">contact@geramepolangcosmart.com</a><br>
+                🌐 <a href="https://www.geramepolangcosmart.com" style="color:var(--footer-text);text-decoration:none;">www.geramepolangcosmart.com</a><br>
+                <div class="footer-business-hours">
+                    Business Hours: Monday – Saturday, 8:00 AM – 6:00 PM
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="refund-policy.html">Refund Policy</a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            © 2025 Gerame Polangcos General Mart. All rights reserved.
+        </div>
+    </footer>
+    <script>
+        // Dummy product data for demo; replace with actual cart data as needed
+        const orderProducts = [
+            { name: "Men's Polo Shirt", qty: 2, price: 349 },
+            { name: "Women's Blouse", qty: 1, price: 269 },
+            { name: "Classic Baseball Cap", qty: 3, price: 89 }
+        ];
+        function formatCurrency(n) { return "₱" + n.toLocaleString(undefined, {minimumFractionDigits:2}); }
+        // Render order table
+        function renderOrderTable() {
+            const tbody = document.querySelector("#order-table tbody");
+            tbody.innerHTML = "";
+            let total = 0;
+            orderProducts.forEach(prod => {
+                let subtotal = prod.qty * prod.price;
+                total += subtotal;
+                const tr = document.createElement("tr");
+                tr.innerHTML = `<td>${prod.name}</td><td>${prod.qty}</td><td>${formatCurrency(prod.price)}</td><td>${formatCurrency(subtotal)}</td>`;
+                tbody.appendChild(tr);
+            });
+            document.getElementById("order-total").textContent = formatCurrency(total);
+        }
+        renderOrderTable();
+
+        // Handle checkout submission
+        document.getElementById("customer-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            // Normally, validate and submit to server here
+            document.getElementById("checkout-step-1").style.display = "none";
+            document.getElementById("checkout-step-2").style.display = "block";
+            window.scrollTo({top:0, behavior:"smooth"});
+        });
+    </script>
+</body>
+</html>
