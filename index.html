@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Gerame Polangcos General Mart | Affordable Apparel in Marikina</title>
-    <meta name="description" content="Gerame Polangcos General Mart. Affordable, quality apparel for men, women, and children in Marikina. Local clothing and essentials.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerame Polangcos General Mart. Affordable, quality apparel for men, women, and children in Marikina. Local clothing and essentials.">
     <link rel="icon" href="image/LOGO.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,15 +13,15 @@
             --accent: #f6c400;
             --background: #101010;
             --text: #fff;
-            --card-bg: #181818;
             --header-bg: #050505;
             --footer-bg: #050505;
             --footer-text: #fff;
             --btn-bg: #f6c400;
             --btn-hover: #ffe066;
             --btn-text: #111;
+            --card-bg: #181818;
             --cart-bg: #191919;
-            --border-radius: 14px;
+            --border-radius: 16px;
             --shadow: 0 2px 8px rgba(0,0,0,0.085);
             --danger: #d44;
             --danger-hover: #ff6363;
@@ -36,17 +34,18 @@
             color: var(--text);
             min-height: 100vh;
         }
+        /* --- HEADER --- */
         header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
             background: var(--header-bg);
             box-shadow: var(--shadow);
             padding: 0.5em 0;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            width: 100%;
+            z-index: 10010;
+            width: 100vw;
         }
         .container {
-            width: 94%;
+            width: 95%;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -63,8 +62,8 @@
             gap: 0.7em;
         }
         .logo-img {
-            height: 68px;
-            width: 68px;
+            height: 54px;
+            width: 54px;
             background: #111;
             border-radius: 50%;
             overflow: hidden;
@@ -73,27 +72,26 @@
             justify-content: center;
         }
         .logo-img img {
-            height: 60px;
-            width: 60px;
+            height: 44px;
+            width: 44px;
             object-fit: contain;
-            display: block;
         }
         .brand-title {
             display: flex;
             flex-direction: column;
             gap: 0.1em;
-        }
-        .brand-title .name {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.35em;
-            font-weight: 700;
-            letter-spacing: 0.04em;
             color: var(--primary);
         }
+        .brand-title .name {
+            font-size: 1.19em;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
         .brand-title .type {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.89em;
-            letter-spacing: 0.12em;
+            font-size: 1em;
+            font-weight: 700;
+            letter-spacing: 0.11em;
             color: var(--accent);
         }
         nav {
@@ -128,7 +126,7 @@
             background: none;
             border: none;
             margin-left: 1em;
-            z-index: 9999;
+            z-index: 10011;
             position: absolute;
             top: 50%;
             right: 0;
@@ -143,6 +141,17 @@
             border-radius: 2px;
             transition: 0.3s;
         }
+        /* --- STICKY PADDING FOR HEADER --- */
+        .sticky-header-pad {
+            width: 100%;
+            height: 74px; /* Adjust to header height, including padding */
+        }
+        @media (max-width: 700px) {
+            .sticky-header-pad {
+                height: 65px;
+            }
+        }
+        /* --- HERO --- */
         .hero {
             background: linear-gradient(90deg, #171717 75%, var(--accent) 100%);
             color: var(--primary);
@@ -189,6 +198,7 @@
             border-radius: 8px;
             padding: 0.36em 1.29em;
         }
+        /* --- SECTION --- */
         .section {
             background: var(--card-bg);
             border-radius: 16px;
@@ -411,12 +421,12 @@
         .checkout-btn:hover {
             background: var(--btn-hover);
         }
-        /* Floating Cart Button */
+        /* Floating Cart Button - sticky always */
         .floating-cart-btn {
             position: fixed;
             right: 28px;
             bottom: 28px;
-            z-index: 1001;
+            z-index: 10020;
             background: var(--accent);
             color: var(--btn-text);
             border: none;
@@ -430,6 +440,7 @@
             font-size: 2em;
             cursor: pointer;
             transition: background 0.18s, box-shadow 0.18s;
+            will-change: transform;
         }
         .floating-cart-btn:hover {
             background: var(--btn-hover);
@@ -451,7 +462,6 @@
             justify-content: center;
             box-shadow: 0 2px 6px #0005;
         }
-        /* Cart Pop-up */
         .cart-popup-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -545,6 +555,7 @@
         .cart-popup-close:hover {
             color: var(--accent);
         }
+        /* Responsive */
         @media (max-width: 900px) {
             nav { gap: 0.6em;}
             .footer-container { flex-direction: column; gap: 0.6em;}
@@ -632,6 +643,8 @@
             </nav>
         </div>
     </header>
+    <!-- Sticky pad for header, so content is not hidden under fixed header -->
+    <div class="sticky-header-pad"></div>
     <section class="hero">
         <div class="container">
             <div class="hero-logo">
@@ -644,7 +657,6 @@
             </span>
         </div>
     </section>
-
     <!-- ABOUT US -->
     <section class="section" id="aboutus">
         <h2>About Us</h2>
@@ -663,7 +675,6 @@
             To become Marikina’s most trusted and recommended general clothing mart by delivering consistent quality and value.
         </p>
     </section>
-
     <!-- PRODUCTS & SERVICES -->
     <section class="section" id="products">
         <h2>Products & Services</h2>
@@ -757,7 +768,6 @@
             </div>
         </div>
     </section>
-
     <!-- CART SECTION -->
     <section class="cart-section container" id="cart-section">
         <div class="cart-title">🛒 Your Cart</div>
@@ -767,7 +777,6 @@
         <div class="cart-summary" id="cart-summary"></div>
         <button class="checkout-btn" id="checkout-btn" disabled>Checkout</button>
     </section>
-
     <!-- Floating Cart Button -->
     <button class="floating-cart-btn" id="floating-cart-btn" title="Show Cart" aria-label="Cart">
         <span style="display:inline-block;">
@@ -780,7 +789,6 @@
         </span>
         <span class="floating-cart-badge" id="floating-cart-badge" style="display:none;">0</span>
     </button>
-
     <!-- Pop-up Cart Modal -->
     <div class="cart-popup-overlay" id="cart-popup-overlay">
         <div class="cart-popup" id="cart-popup">
@@ -793,7 +801,6 @@
             <button class="checkout-btn" id="cart-popup-checkout-btn" disabled>Checkout</button>
         </div>
     </div>
-
     <!-- CONTACT US -->
     <section class="section" id="contact">
         <h2>Contact Us</h2>
@@ -809,7 +816,6 @@
             For orders, inquiries, or customer support, reach us through phone, email, or visit us in-store. Follow us on Facebook soon for promos and updates!
         </p>
     </section>
-
     <!-- FAQ SECTION -->
     <section class="section" id="faq">
         <h2>Frequently Asked Questions</h2>
@@ -832,7 +838,6 @@
             </div>
         </div>
     </section>
-
     <!-- TESTIMONIALS SECTION -->
     <section class="section" id="testimonials">
         <h2>Testimonials</h2>
@@ -851,7 +856,6 @@
             </div>
         </div>
     </section>
-
     <footer>
         <div class="footer-container">
             <div class="footer-info">
@@ -874,7 +878,6 @@
             © 2025 Gerame Polangcos General Mart. All rights reserved.
         </div>
     </footer>
-
     <script>
         // Burger Button Functionality
         const burger = document.getElementById('burger');
@@ -897,7 +900,6 @@
                 burger.setAttribute('aria-expanded', false);
             }
         });
-
         // Cart Functionality
         const products = [
             { id: 1, title: "Men's Polo Shirt", price: 349, desc: "Stylish and comfortable. Perfect for office or casual wear.", qty: 12 },
@@ -908,7 +910,6 @@
             { id: 6, title: "Towel Set (2 pcs)", price: 159, desc: "Soft, absorbent, and perfect for daily use.", qty: 9 }
         ];
         let cart = [];
-
         document.querySelectorAll('.add-cart-btn').forEach((btn, idx) => {
             btn.addEventListener('click', function() {
                 const product = products[idx];
@@ -957,7 +958,6 @@
         document.getElementById('checkout-btn').addEventListener('click', function() {
             window.location.href = 'order-summary.html';
         });
-
         // Floating Cart Button Functionality
         const floatingCartBtn = document.getElementById('floating-cart-btn');
         const cartSection = document.getElementById('cart-section');
@@ -1020,7 +1020,6 @@
             updateCart();
             displayCartPopup();
         }
-
         // Initial badge state on load
         updateFloatingCartBadge(0);
     </script>
