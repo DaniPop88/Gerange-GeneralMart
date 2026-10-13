@@ -1,0 +1,118 @@
+:root {
+  --violet: #5b3a7a;
+  --violet-deep: #321f46;
+  --brass: #c89a3a;
+  --cream: #faf7f2;
+  --card: #fff;
+  --ink: #241b2e;
+  --muted: #6e6479;
+  --line: #e6dff0;
+  --radius: 1.2rem;
+  --shadow: 0 20px 42px -26px rgba(50,31,70,.4);
+  --display: 'Marcellus', Georgia, serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); -webkit-font-smoothing: antialiased; }
+section[id] { scroll-margin-top: 110px; }
+h1, h2, h3 { font-family: var(--display); }
+
+/* Header */
+header { background: rgba(250,247,242,.95); backdrop-filter: blur(6px); box-shadow: none; border-bottom: 1px solid var(--line); }
+.logo-bar { padding: .8rem 1.5rem; }
+.logo-img img { width: 42px; height: 42px; border-radius: 50%; }
+.brand-title .name { font-family: var(--display); font-size: 1.05rem; color: var(--violet-deep); display: block; }
+.brand-title .type { font-size: .68rem; letter-spacing: .12em; color: var(--brass); }
+#main-nav a { font-weight: 700; font-size: .86rem; color: var(--ink); }
+#main-nav a.active, #main-nav a:hover { color: var(--violet); }
+
+.container { max-width: 1180px; }
+.section { margin: clamp(3.2rem, 7vw, 5.5rem) auto 0; max-width: 1180px; padding: 0 1.5rem; }
+.section h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); color: var(--violet-deep); margin-bottom: 1.2rem; }
+
+/* Hero */
+.hero {
+  text-align: center; background: linear-gradient(150deg, var(--violet) 0%, var(--violet-deep) 100%); color: #e9ddf2;
+  border-radius: 1.8rem; padding: clamp(2rem, 5vw, 3.8rem) 1.5rem; margin: 1.6rem auto 0; max-width: 1180px; box-shadow: var(--shadow);
+}
+.hero-logo img { width: 90px; height: 90px; border-radius: 50%; background: #fff; padding: .6rem; margin: 0 auto 1.2rem; box-shadow: 0 14px 28px -10px rgba(0,0,0,.4); }
+.hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 2.9rem); }
+.hero p { color: #d9c9ea; max-width: 56ch; margin: .8rem auto 0; }
+.tagline { display: inline-block; margin-top: 1.2rem; background: var(--brass); color: var(--violet-deep); font-weight: 700; padding: .5rem 1.3rem; border-radius: 999px; }
+
+/* About: original site was a dark theme (black bg, #dedede body text),
+   so every light-card section needs its text color re-overridden. */
+.section p, .section ul, .section li, .section address, .faq-a { color: var(--muted) !important; }
+#aboutus { background: var(--card); border: 1px solid var(--line); border-radius: 1.6rem; padding: clamp(1.8rem,4vw,3rem); }
+#aboutus h3 { color: var(--violet); font-size: 1.2rem; margin-top: 1.2rem; }
+
+/* Products: this section also inherited the original dark-theme card
+   background (#181818) and was never switched to match the rest. */
+#products.section { background: var(--card) !important; }
+#products > ul { list-style: none; margin: 1.2rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+#products > ul li { background: var(--card); border: 1px solid var(--line); border-radius: .8rem; padding: .8rem 1rem; font-size: .9rem; }
+#products > ul strong { color: var(--violet); }
+.products-section h2 { margin-top: 1rem; }
+.products-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.product-card { background: var(--card); border: none; border-radius: 1.1rem; box-shadow: var(--shadow); padding: 0 0 1.2rem; overflow: hidden; transition: transform .2s; }
+.product-card:hover { transform: translateY(-5px); }
+.product-image { background: var(--cream); margin-bottom: .8rem; }
+.product-image img { width: 100%; height: 160px; object-fit: contain; padding: 1rem; }
+.product-meta { color: var(--muted) !important; font-size: .78rem; padding: 0 1rem; }
+
+/* Cart */
+.cart-section { background: var(--card); border: 1px solid var(--line); border-radius: 1.3rem; padding: 1.8rem; }
+.checkout-btn { background: var(--violet); color: #fff; border: none; border-radius: 999px; padding: .75rem 1.4rem; font-weight: 700; cursor: pointer; }
+.checkout-btn:hover:not(:disabled) { background: var(--brass); color: var(--violet-deep); }
+.floating-cart-btn { background: var(--violet); box-shadow: 0 14px 28px -8px rgba(91,58,122,.6); }
+.cart-popup { border-radius: 1.3rem; }
+
+/* Contact */
+#contact { background: var(--violet-deep); color: #e9ddf2; border-radius: 1.6rem; padding: clamp(1.8rem,4vw,3rem); }
+#contact h2 { color: #fff; }
+#contact address, #contact.section p { font-style: normal; color: #e9ddf2 !important; }
+#contact strong { color: var(--brass); }
+#contact a { color: #fff !important; }
+
+/* FAQ accordion */
+#faq.section { background: transparent !important; box-shadow: none !important; padding: 0 !important; }
+.faq-list { display: flex; flex-direction: column; gap: .7rem; }
+.faq-item { background: var(--card); border: 1px solid var(--line); border-radius: 1rem; overflow: hidden; }
+.faq-item summary { cursor: pointer; list-style: none; padding: 1rem 1.3rem; font-weight: 700; color: var(--violet-deep); display: flex; justify-content: space-between; gap: 1rem; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--cream); color: var(--violet); display: flex; align-items: center; justify-content: center; }
+.faq-item[open] summary::after { content: '\2212'; background: var(--brass); color: var(--violet-deep); }
+.faq-item p { padding: 0 1.3rem 1.1rem; margin: 0; color: var(--muted); }
+
+/* Testimonials */
+#testimonials.section { background: transparent !important; box-shadow: none !important; padding: 0 !important; }
+.testimonial-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.testimonial { background: var(--card); border-top: 4px solid var(--brass); border-radius: 0 1rem 1rem 1rem; box-shadow: var(--shadow); padding: 1.3rem; font-family: var(--display); font-size: 1rem; display: flex; flex-direction: column; gap: .8rem; }
+.testimonial .author { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: .8rem; color: var(--violet); }
+
+footer { background: var(--violet-deep); border-radius: 1.8rem 1.8rem 0 0; }
+.footer-links a { color: var(--brass); }
+
+@media (max-width: 1000px) {
+  .products-list { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .products-list, #products > ul { grid-template-columns: 1fr; }
+  .hero { border-radius: 1.4rem; }
+}
+/* Legal + order-summary pages: these were never touched during the
+   index.html redesign and still carry the original site-wide dark
+   theme (#101010 body, white text, #181818 cards). Header background
+   is already overridden above (generic `header` selector), so this
+   just brings the card content and brand text in line with it. */
+.brand-title { color: var(--violet-deep) !important; }
+main, .summary-wrapper { background: var(--card) !important; color: var(--ink) !important; box-shadow: var(--shadow) !important; border-radius: 1.4rem !important; }
+main h1, .summary-wrapper h1 { color: var(--violet-deep) !important; }
+main h2, main h3, .summary-wrapper h2, .summary-wrapper h3 { color: var(--violet) !important; }
+main p, main ul, main li, .summary-wrapper p, .summary-wrapper label { color: var(--muted) !important; }
+main a, .summary-wrapper a { color: var(--violet) !important; }
+.order-table { background: var(--cream) !important; }
+.order-table th, .order-table td { color: var(--ink) !important; border-color: var(--line) !important; }
+.order-table th, .order-total-row td { color: var(--violet) !important; }
+.form-row input, .form-row select, .form-row textarea { background: var(--cream) !important; color: var(--ink) !important; border: 1px solid var(--line) !important; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }

@@ -7,6 +7,9 @@
     <meta name="description" content="Gerame Polangcos General Mart. Affordable, quality apparel for men, women, and children in Marikina. Local clothing and essentials.">
     <link rel="icon" href="image/LOGO.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #fff;
@@ -615,6 +618,7 @@
             }
         }
     </style>
+  <link rel="stylesheet" href="polish.css">
 </head>
 <body>
     <header>
@@ -793,7 +797,7 @@
     <div class="cart-popup-overlay" id="cart-popup-overlay">
         <div class="cart-popup" id="cart-popup">
             <button class="cart-popup-close" id="cart-popup-close" title="Close">×</button>
-            <h3>Total Belanja Anda</h3>
+            <h3>Your Cart</h3>
             <ul class="cart-popup-list" id="cart-popup-list">
                 <!-- List of cart items here -->
             </ul>
@@ -808,8 +812,8 @@
             <strong>Gerame Polangcos General Mart</strong><br>
             #14 A. Mabini Street, Barangay Sta. Elena, City of Marikina, NCR, 1800, Philippines<br>
             <strong>Phone:</strong> <a href="tel:+639360129784" style="color:#f6c400;text-decoration:none;">+63 936 012 9784</a><br>
-            <strong>Email:</strong> <a href="mailto:contact@geramepolangcosmart.com" style="color:#f6c400;text-decoration:none;">contact@geramepolangcosmart.com</a><br>
-            <strong>Website:</strong> <a href="https://www.geramepolangcosmart.com" style="color:#f6c400;text-decoration:none;">www.geramepolangcosmart.com</a><br>
+            <strong>Email:</strong> <a href="mailto:sales@geramemart.store" style="color:#f6c400;text-decoration:none;">sales@geramemart.store</a><br>
+            <strong>Website:</strong> <a href="https://geramemart.store" style="color:#f6c400;text-decoration:none;">geramemart.store</a><br>
             <strong>Business Hours:</strong> Monday – Saturday: 8:00 AM – 6:00 PM, Sunday: Closed
         </address>
         <p>
@@ -820,22 +824,22 @@
     <section class="section" id="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-list">
-            <div class="faq-item">
-                <div class="faq-q">Q: Do you offer delivery?</div>
-                <div class="faq-a">A: Yes, we offer local delivery within Marikina and nearby areas via partner couriers. For inquiries, just send us a message.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Q: Are your prices fixed?</div>
-                <div class="faq-a">A: Most of our items are already discounted, but we do offer occasional bulk or promo pricing. Sulit na sulit, promise!</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Q: Do you accept online orders?</div>
-                <div class="faq-a">A: Yes, we accept orders via email or phone. Soon, we’ll launch our official Facebook store for easier transactions.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Q: Do you have fitting rooms?</div>
-                <div class="faq-a">A: Yes, we have a small but clean fitting area inside the store for your convenience.</div>
-            </div>
+            <details class="faq-item" open>
+                <summary>Do you offer delivery?</summary>
+                <p>Yes, we offer local delivery within Marikina and nearby areas via partner couriers. For inquiries, just send us a message.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Are your prices fixed?</summary>
+                <p>Most of our items are already discounted, but we do offer occasional bulk or promo pricing. Sulit na sulit, promise!</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do you accept online orders?</summary>
+                <p>Yes, we accept orders via email or phone. Soon, we’ll launch our official Facebook store for easier transactions.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do you have fitting rooms?</summary>
+                <p>Yes, we have a small but clean fitting area inside the store for your convenience.</p>
+            </details>
         </div>
     </section>
     <!-- TESTIMONIALS SECTION -->
@@ -862,10 +866,11 @@
                 <strong>Gerame Polangcos General Mart</strong><br>
                 #14 A. Mabini Street, Barangay Sta. Elena, City of Marikina, NCR, Philippines<br>
                 📞 <a href="tel:+639360129784" style="color:var(--footer-text);text-decoration:none;">+63 936 012 9784</a><br>
-                📧 <a href="mailto:contact@geramepolangcosmart.com" style="color:var(--footer-text);text-decoration:none;">contact@geramepolangcosmart.com</a><br>
-                🌐 <a href="https://www.geramepolangcosmart.com" style="color:var(--footer-text);text-decoration:none;">www.geramepolangcosmart.com</a><br>
+                📧 <a href="mailto:sales@geramemart.store" style="color:var(--footer-text);text-decoration:none;">sales@geramemart.store</a><br>
+                🌐 <a href="https://geramemart.store" style="color:var(--footer-text);text-decoration:none;">geramemart.store</a><br>
                 <div class="footer-business-hours">
-                    Business Hours: Monday – Saturday, 8:00 AM – 6:00 PM
+                    Business Hours: Monday – Saturday, 8:00 AM – 6:00 PM<br>
+                    TIN: 552-789-634-000
                 </div>
             </div>
             <div class="footer-links">
@@ -997,7 +1002,7 @@
             cartPopupList.innerHTML = '';
             let total = 0;
             if (cart.length === 0) {
-                cartPopupList.innerHTML = '<li style="text-align:center;color:#bbb;font-style:italic;">Keranjang kosong.</li>';
+                cartPopupList.innerHTML = '<li style="text-align:center;color:#bbb;font-style:italic;">Your cart is empty.</li>';
                 cartPopupTotal.textContent = '';
                 cartPopupCheckoutBtn.disabled = true;
             } else {
@@ -1006,7 +1011,7 @@
                     const li = document.createElement('li');
                     li.innerHTML = `<span>${item.title} (x${item.qty})</span>
                         <span>₱${(item.price * item.qty).toLocaleString()}</span>
-                        <button class="remove-btn" title="Hapus pesanan" onclick="removeFromCartPopup(${item.id})">×</button>`;
+                        <button class="remove-btn" title="Remove item" onclick="removeFromCartPopup(${item.id})">×</button>`;
                     cartPopupList.appendChild(li);
                 });
                 cartPopupTotal.textContent = `Total: ₱${total.toLocaleString()}`;
