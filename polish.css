@@ -116,3 +116,44 @@ main a, .summary-wrapper a { color: var(--violet) !important; }
 .form-row input, .form-row select, .form-row textarea { background: var(--cream) !important; color: var(--ink) !important; border: 1px solid var(--line) !important; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+/* === Layout pass 2026-11-07: no side-scroll, readable products, contact cards, real footer === */
+html, body { overflow-x: clip; }
+.container, .section, .logo-bar, header, footer, .footer-container { box-sizing: border-box; }
+/* Products: photo fills the card top, readable text */
+.product-card { display: flex !important; flex-direction: column; align-items: stretch !important; text-align: center; }
+.product-image { width: 100% !important; height: auto !important; aspect-ratio: 1 / 1; padding: 0 !important; margin: 0 0 .9rem !important; overflow: hidden; border: 0 !important; border-radius: 0 !important; }
+.product-image img { width: 100% !important; height: 100% !important; object-fit: cover !important; padding: 0 !important; border-radius: 0 !important; }
+.product-title { color: var(--violet-deep) !important; padding: 0 1rem; }
+.product-desc { color: var(--muted, #6b6276) !important; padding: 0 1rem; }
+.product-card button { margin: auto 1rem 0 !important; align-self: stretch; }
+/* Contact cards */
+#contact .contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin: 1.2rem 0; line-height: 1.6; }
+.contact-card { background: rgba(255,255,255,.07); border-left: 4px solid var(--brass); border-radius: 0 .9rem .9rem 0; padding: .9rem 1.1rem; overflow-wrap: anywhere; }
+.contact-card.wide { grid-column: 1 / -1; }
+.contact-card strong { display: block; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .15rem; }
+/* Footer: was unstyled */
+footer { color: #e9ddf2; padding: 2.4rem 1.5rem 1.4rem !important; margin-top: 3rem; text-align: center; line-height: 1.7; }
+footer .footer-container { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+footer .footer-info strong { color: #fff; font-size: 1.05rem; }
+footer .footer-info, footer .footer-business-hours { color: #e9ddf2; }
+footer .footer-info a { color: #e9ddf2 !important; }
+footer .footer-business-hours { margin-top: .4rem; opacity: .85; font-size: .9rem; }
+footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.4rem; }
+footer .footer-links a { color: var(--brass) !important; text-decoration: none; font-weight: 600; }
+footer .footer-copy { margin-top: 1rem; font-size: .82rem; opacity: .7; }
+@media (max-width: 800px) { #contact .contact-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { header { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; } }
+@media (max-width: 800px) { .testimonial-list { grid-template-columns: minmax(0, 1fr) !important; } .testimonial { width: auto !important; min-width: 0 !important; max-width: 100% !important; box-sizing: border-box; } }
+.product-image img { max-width: none !important; max-height: none !important; }
+.product-image { background: var(--cream) !important; }
+@media (max-width: 700px) {
+  nav#main-nav, nav#main-nav.open { background: #fff !important; box-shadow: 0 18px 30px -18px rgba(40,20,60,.35); }
+  nav#main-nav a { color: var(--violet-deep) !important; }
+  nav#main-nav a.active { color: #2a1640 !important; }
+}
+#cart-section h2, #cart-section h3, .cart-section h2, .cart-section h3 { color: var(--violet-deep) !important; }
+#cart-section li, #cart-section .cart-item, #cart-section span, .cart-section li, .cart-section .cart-item, .cart-section span { color: var(--ink, #2a2233) !important; }
+#cart-section .cart-total, .cart-section .cart-total, #cart-total { color: var(--violet-deep) !important; }
+#cart-section .empty, .cart-section .empty, #cart-section em, .cart-section em { color: var(--muted, #6b6276) !important; }
+.cart-section .cart-title, .cart-section .cart-summary, .cart-section .cart-summary * { color: var(--violet-deep) !important; }
